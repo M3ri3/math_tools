@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Logo Animada - Compacta</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fcfcfc;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+
+        .logo-container {
+            width: 150px;
+            height: 190px;
+        }
+
+        /* Animação de deslocamento reduzida para 130px para ficarem próximas */
+        @keyframes jumpClockwise {
+            0%, 100% { transform: translate(0, 0); }
+            25%      { transform: translate(150px, 0); }    /* Direita */
+            50%      { transform: translate(150px, 150px); }  /* Baixo */
+            75%      { transform: translate(0, 150px); }    /* Esquerda */
+        }
+
+        .shape {
+            animation: jumpClockwise 2s ease-in-out infinite;
+        }
+
+        /* Sequência de posições */
+        #triangulo { animation-delay: 0s; }
+        #circulo   { animation-delay: -0.75s; }
+        #quadrado  { animation-delay: -1.4s; }
+
+        /* Container Principal (Logo + Texto) */
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Espaço entre a logo e o texto */
+        }
+
+        .brand-text {
+            color:  #000000;
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+            text-transform: lowercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="brand-wrapper">
+    <div class="logo-container">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            
+            <g id="triangulo" class="shape">
+                <path d="M120,170 L230,170 L175,70 Z" fill="#f0f4b3" />
+            </g>
+
+            <g id="circulo" class="shape">
+                <circle cx="175" cy="120" r="55" fill="#f3b8f0" />
+            </g>
+
+            <g id="quadrado" class="shape">
+                <rect x="120" y="65" width="110" height="110" rx="15" fill="#f7d68a" />
+            </g>
+        </svg>
+        </div>
+        <h1 class="brand-text">matemateca</h1>
+    </div>
+
+</body>
+</html>
