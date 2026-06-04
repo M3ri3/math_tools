@@ -1,107 +1,252 @@
-## **DELTA**
+# Impateca
+> Interactive educational content for undergraduate mathematics.
 
-> A nova forma de escrever matemática
+Impateca is an educational initiative being developed at IMPA Tech with the goal of producing interactive university-level mathematics content for undergraduates. 
 
-O **DELTA** é uma nova linguagem que visa simplificar a criação de documentos matemáticos. A solução da linguagem **DELTA** surgiu para superar as limitações do PDF. Enquanto o PDF mantém o conhecimento estático, o formato `.delta` transforma o aprendizado em uma experiência viva. Com ele, você integra vídeos, elementos interativos e recursos avançados de HTML diretamente no fluxo do texto, mesmo que você não saiba nada de programação.
+The project combines mathematical writing, web technologies, and interactive visualizations to transform traditional static notes into dynamic educational experiences.
 
-
----
-
-## Por que o DELTA?
-
-O Delta surgiu para simplificar o trabalho de formatação em LaTeX, propondo-se como um **editor** e **compilador** focado no conteúdo, sem a aparência de código.
-Como escrever em LaTeX pode intimidar os iniciantes os quais não tem familiaridade com programação, o Delta busca tornar esse processo mais acessível. Além disso, ao desenvolvermos nosso próprio editor temos a liberdade para incorporar elementos interativos que enriquecem a experiência de leitura digital (adaptação do conteúdo à tela ou aumento de fonte) 
-
+At its core, Impateca is built around an ecosystem composed of a custom language, authoring tools, interactive frameworks, and educational content.
 
 ---
 
-## Exemplo Comparativo
+# Vision
 
-Veja como é mais simples definir um título e subtítulo no DELTA em comparação ao LaTeX tradicional:
+Mathematics is often taught through static textbooks, lecture notes, and PDF documents. While these formats are excellent for presenting rigorous content, they offer limited opportunities for exploration, experimentation, and visual intuition. Many of the objects mathematicians study—functions, transformations, limits, dynamical systems, and abstract structures—exist vividly in their imagination, yet remain invisible on the page. Impateca aims to bridge this gap by transforming mathematical ideas into interactive experiences, making visible what mathematicians see when they read, think, and discover.
 
-| Recurso | Sintaxe DELTA | LaTeX Tradicional |
-| :--- | :--- | :--- |
-| **Título** | `# Título` | `\title{Título}` |
-| **Seção** | `## Seção` | `\section{Seção}` |
-| **Teorema** | `theorem "Título":` | `\begin{theorem}...\end{theorem}` |
-| **Prova** | `proof:` | `\begin{proof}...\end{proof}` |
-| **Definição** | `definition "Título":` | `\begin{definition}...\end{definition}` |
-| **Lema** | `lemma "Título":` | `\begin{lemma}...\end{lemma}` |
-| **Exemplo** | `example:` | `\begin{example}...\end{example}` |
-| **Ênfase (itálico)** | `*texto*` | `\emph{texto}` |
-| **Lista numerada** | `1. Item` | `\begin{enumerate}...\end{enumerate}` |
+The long-term objective is to create a platform where students can:
 
-  ## Exemplo de Documento em DELTA
-A linguagem DELTA foi pensada para que você escreva matemática de forma natural, como se estivesse redigindo um texto comum, sem se preocupar com comandos técnicos ou estrutura de código. Títulos, teoremas, definições e provas são escritos de maneira direta e legível, enquanto fórmulas continuam usando a notação matemática padrão. O objetivo é que seu foco esteja totalmente no conteúdo — não na formatação.
-
-
-    ```delta
-    # Introdução à Análise Matemática
-
-    ## Continuidade
-
-    definition "Função contínua":
-        Dizemos que uma função $f: \mathbb{R} \to \mathbb{R}$ é contínua em um ponto $a$ se
-        $$\lim_{x \to a} f(x) = f(a).$$
-
-    theorem "Teorema do Valor Intermediário":
-        Seja $f$ contínua em $[a,b]$. Se $f(a) < 0 < f(b)$, então existe $c \in (a,b)$ tal que
-        $$f(c) = 0.$$
-
-        proof:
-            Como $f$ é contínua em $[a,b]$, sua imagem é um intervalo.
-            Como $0$ está entre $f(a)$ e $f(b)$, segue o resultado.
-
-    example:
-        Considere $f(x) = x^3 - 1$. Temos $f(0) = -1$ e $f(1) = 0$, logo existe
-        $c \in (0,1)$ tal que $f(c) = 0$.
+- Read mathematical content;
+- Interact with visual demonstrations;
+- Manipulate parameters;
+- Develop intuition alongside formal theory.
 
 ---
 
-## Funcionalidades Principais
+# Ecosystem
 
-* **Renderização Instantânea:** Visualize as alterações no layout em tempo real.
-* **Mapeamento Automático:** Conversão inteligente de tags Delta para HTML semântico.
-* **Layout Responsivo:** Ajuste automático de largura e tamanho de fonte para leitura em qualquer dispositivo.
-* **Barra Lateral de Navegação:** Sumário automático para documentos longos e capítulos.
+The Impateca ecosystem is organized into five major components.
+
+```text
+Impateca
+│
+├── DELTA (Language)
+├── DELTA Editor
+├── Canvas Framework
+├── Books
+└── Web Platform
+```
 
 ---
 
-## Requisitos do Sistema
+# DELTA 
 
-Antes de começar, certifique-se de ter instalado:
-* **Python:** Versão 3.8 ou superior.
-* **Dependências:** Listadas no arquivo `requirements.txt` (A SER ESCRITO).
+The production of this interactive mathematical learning materials was are powered by DELTA, a lightweight markup language for mathematical writing. The original language has been extended to support interactive components, dynamic visualizations, and other features required for modern web-based educational materials.
+
+Check out the DELTA repository here: [DELTA](https://github.com/rbribeiro/delta)
+
+DELTA is a lightweight markup language designed for mathematical writing.
+
+The language was created to reduce the verbosity of LaTeX while preserving a structured and expressive way of producing mathematical documents.
+
+Instead of writing large amounts of HTML, CSS, or LaTeX boilerplate, authors write content using DELTA syntax.
+
+Example:
+
+```delta
+# Definition
+
+A sequence converges to L if...
+```
+
+The DELTA compiler transforms the source file into a responsive HTML document.
+
+The goal is to allow authors to focus on mathematics rather than document formatting.
+
+The DELTA Editor is the authoring environment of the ecosystem. The objective is using this software allow we writing educational materials as simple as writing plain text.
 
 ---
 
-##  Guia de Instalação
+# Canvas Framework
 
-1. Clone o repositório:
-   ```bash
-   git clone (https://github.com/rbribeiro/delta.git)
+One of the main innovations of Impateca is the integration of interactive visualizations through HTML5 Canvas.
 
-2. Acesse a pasta do projeto:
-    ```bash
-    cd delta/editor
+Traditional mathematical documents are static. The Canvas Framework introduces dynamic content directly into educational materials.
 
-3. Execute o arquivo `index.html` utilizando um servidor local.
+Authors will be able to embed simulations and animations through DELTA commands.
 
-# Licença
+Example:
 
-Este projeto está licenciado sob a Licença Creative Commons Atribuição–NãoComercial 4.0 Internacional.
+```delta
+canvas(HTML5): animations/riemann_sum.js
+name: "riemann-sum"
+```
 
-[![Licença: CC BY-NC 4.0](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)](http://creativecommons.org/licenses/by-nc/4.0/)
+The compiler will automatically:
 
-Você é livre para:
+- Create the canvas element;
+- Connect the JavaScript source;
+- Handle responsive layouts;
+- Integrate the visualization into the page.
 
-- **Compartilhar** — copiar e redistribuir o material em qualquer meio ou formato  
-- **Adaptar** — remixar, transformar e criar a partir do material  
+Authors only need to implement the mathematical behavior in JavaScript.
 
-Sob os seguintes termos:
+### Example Applications
 
-- **Atribuição** — Você deve dar o crédito apropriado, fornecer um link para a licença e indicar se alterações foram feitas. Isso pode ser feito de qualquer maneira razoável, desde que não sugira que o licenciante endossa você ou seu uso.
-- **NãoComercial** — Você não pode usar o material para fins comerciais.
+- Compacts Sets
+- Taylor approximations
+- Linear transformations
 
-Leia a licença completa [aqui](http://creativecommons.org/licenses/by-nc/4.0/).
+---
 
+# Books
+
+Impateca introduces a book-oriented workflow for educational content.
+
+A DELTA document may define metadata describing a mathematical work.
+
+Example:
+
+```delta
+dlt type == "book"
+area="analysisI"
+name="real-analysis"
+
+author: "Author Name"
+
+chapter: 0.1
+title: Preface
+```
+
+The metadata defines:
+
+- Document type;
+- Subject area;
+- Book identifier;
+- Author information;
+- Chapter organization.
+
+---
+
+## Chapter Structure
+
+Regular chapters:
+
+```delta
+chapter: 1
+chapter: 2
+chapter: 3
+```
+
+Front matter sections:
+
+```delta
+chapter: 0.1
+chapter: 0.2
+chapter: 0.3
+```
+
+Examples include:
+
+- Preface
+- Introduction
+- Acknowledgements
+- Notation
+
+---
+
+## Generated Files
+
+The chapter number determines the generated source file.
+
+| Chapter | Generated File |
+|----------|----------|
+| 0.1 | cap0-1.txt |
+| 0.2 | cap0-2.txt |
+| 1 | cap1.txt |
+| 2 | cap2.txt |
+
+This structure allows books to be automatically assembled while preserving a logical organization of content.
+
+---
+
+# Web Platform
+
+The Web Platform is the final layer of the ecosystem.
+
+Its purpose is to provide access to educational materials compiler by DELTA and enhanced by the Canvas Framework.
+
+The platform will serve as a public repository of mathematical content.
+
+### Long-Term Goals
+
+- Interactive textbooks
+- Course notes
+- Educational visualizations
+- Searchable content
+- Community contributions
+
+The platform is intended to become a central hub for university-level mathematical learning resources.
+
+---
+
+# Development Roadmap
+
+## Phase 1 — DELTA Foundation
+
+- [ ] Extend DELTA syntax
+- [ ] Improve compiler architecture
+- [ ] Define project structure
+- [ ] Book metadata support
+
+---
+
+## Phase 2 — Interactive Components
+
+- [ ] HTML5 Canvas integration
+- [ ] Responsive visualization system
+- [ ] Animation framework
+- [ ] Interactive mathematical objects
+
+---
+
+## Phase 3 — Educational Content
+
+- [ ] Real Analysis I
+- [ ] Real Analysis II
+- [ ] Complex Analysis
+- [ ] Measure Theory and Integration
+- [ ] Differential Equations
+
+---
+
+## Phase 4 — Authoring Environment
+
+- [ ] Dedicated DELTA editor
+- [ ] Live preview
+- [ ] Project management tools
+- [ ] Export utilities
+
+---
+
+## Phase 5 — Public Platform
+
+- [ ] Content repository
+- [ ] Search system
+- [ ] Community contributions
+- [ ] Open educational library
+
+---
+
+# Current Status
+
+🚧 Active development.
+
+The project is currently focused on integrating DELTA with interactive web technologies and defining the architecture required for the future Impateca platform.
+
+---
+
+# About
+
+Impateca is being developed as part of an undergraduate extension initiative at IMPA Tech.
+
+The project seeks to combine mathematical rigor, interactive visualization, and modern web technologies to create a new generation of educational resources for higher mathematics.
